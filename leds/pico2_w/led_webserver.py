@@ -1,3 +1,4 @@
+import time
 import wifi
 import socketpool
 import board
@@ -39,8 +40,7 @@ def base(request: Request):
 @server.route("/blink", GET)
 def blink(request: Request):
     led.value = True
-    import time
-    time.sleep(0.2)
+    time.sleep(1)
     led.value = False
     return Response(request, body="LED blinked!<br><a href='/'>Go back</a>", content_type="text/html")
 
