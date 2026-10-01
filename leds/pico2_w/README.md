@@ -51,3 +51,12 @@ Now run the program and check that what you see matches your answers.
 ## Extension: Morse code
 
 Flash SOS: three short flashes, three long flashes, three short flashes. Then pause and repeat. Write a function `flash(length)` so you do not repeat the same lines.
+
+## Next step: Blink from a web page
+
+The Pico 2 W has Wi-Fi. [`led_webserver.py`](led_webserver.py) joins your network and serves a web page with a button. Press the button and the LED blinks.
+
+1. Copy [`secrets_example.py`](secrets_example.py) onto CIRCUITPY, rename it `secrets.py` and fill in your Wi-Fi name and password. See [Wi-Fi and the secrets file](../../README.md#wi-fi-and-the-secrets-file).
+2. Make sure the `adafruit_httpserver` folder is in `lib` on CIRCUITPY. It comes in the CircuitPython library bundle.
+3. Copy `led_webserver.py` onto CIRCUITPY as `code.py`.
+4. Open the serial console. The board prints its IP address. Type that address into a browser on the same network.

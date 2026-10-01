@@ -50,6 +50,35 @@ The quickest route is the [micro:bit Python Editor](https://python.microbit.org/
 
 The Raspberry Pi 5 is a full computer, so it runs normal **Python 3**, not CircuitPython firmware. Set it up with Raspberry Pi OS using the getting started guide. Adafruit's Blinka library then lets you run CircuitPython-style code, such as `import board`, on the Pi. Code for the Pi lives in folders marked `raspberry_pi`.
 
+## Wi-Fi and the secrets file
+
+Programs that use Wi-Fi need your network name and password. These live in a file called `secrets.py` on the board, not in the program itself. That way you can share your code without sharing your password.
+
+1. Find `secrets_example.py` in the device folder. It looks like this:
+
+   ```python
+   secrets = {
+       'ssid': 'YOUR_WIFI_NAME',
+       'password': 'YOUR_WIFI_PASSWORD'
+   }
+   ```
+
+2. Copy it onto CIRCUITPY and rename it `secrets.py`.
+3. Replace the placeholder text with your Wi-Fi name and password. Keep the quote marks.
+4. Your program reads the details like this:
+
+   ```python
+   from secrets import secrets
+   wifi.radio.connect(secrets["ssid"], secrets["password"])
+   ```
+
+**Keep `secrets.py` private.**
+
+- Leave `secrets.py` in the top level of CIRCUITPY, not inside a folder, or `import` will not find it.
+- Never put passwords or API keys straight into a program file. Anyone who sees the code sees the key.
+- Never commit `secrets.py` to this repo. The repo's `.gitignore` blocks it, but check before you share any files.
+- If a password or key is ever shared by mistake, change it straight away.
+
 ## Working safely
 
 - **Check the power before you light lots of LEDs.** A board powered from USB can only supply about 500 mA. A full LED panel at high brightness needs far more. Keep brightness at the value the worksheet gives you.
