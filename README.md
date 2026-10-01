@@ -2,7 +2,7 @@
 
 Physical computing examples for students. Each activity gets you writing code that controls real hardware, such as lights, sensors, motors and displays.
 
-All code in this repo is written in **MicroPython** unless a folder says otherwise.
+All code in this repo is written in **[CircuitPython](https://circuitpython.org/)** unless a folder says otherwise. CircuitPython is a version of Python made by Adafruit for small boards. You save your program to the board like a file on a USB stick and it runs straight away.
 
 ## What is in here
 
@@ -19,10 +19,12 @@ Each topic has its own folder, with one subfolder per device. Open a device fold
 
 | Device | What it is | Buy it | Set it up |
 | --- | --- | --- | --- |
-| Adafruit Feather RP2040 | Small microcontroller board with USB-C and a built-in NeoPixel | [The Pi Hut](https://thepihut.com/products/adafruit-feather-rp2040) | [Adafruit guide](https://learn.adafruit.com/adafruit-feather-rp2040-pico) · [MicroPython firmware](https://micropython.org/download/ADAFRUIT_FEATHER_RP2040/) |
-| Raspberry Pi Pico 2 W | Low-cost microcontroller with Wi-Fi and Bluetooth | [The Pi Hut](https://thepihut.com/products/raspberry-pi-pico-2-w) | [Raspberry Pi MicroPython guide](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html) · [MicroPython firmware](https://micropython.org/download/RPI_PICO2_W/) |
-| BBC micro:bit V2 | Classroom board with an LED grid, buttons and sensors built in | [The Pi Hut](https://thepihut.com/products/micro-bit-v2) | [Getting started](https://microbit.org/get-started/getting-started/introduction/) · [micro:bit Python Editor](https://python.microbit.org/) |
-| Raspberry Pi 5 | A full computer running Linux, with GPIO pins for hardware | [The Pi Hut](https://thepihut.com/products/raspberry-pi-5) | [Getting started](https://www.raspberrypi.com/documentation/computers/getting-started.html) |
+| Adafruit Feather RP2040 | Small microcontroller board with USB-C and a built-in NeoPixel | [The Pi Hut](https://thepihut.com/products/adafruit-feather-rp2040) | [Adafruit guide](https://learn.adafruit.com/adafruit-feather-rp2040-pico) · [CircuitPython download](https://circuitpython.org/board/adafruit_feather_rp2040/) |
+| Raspberry Pi Pico 2 W | Low-cost microcontroller with Wi-Fi and Bluetooth | [The Pi Hut](https://thepihut.com/products/raspberry-pi-pico-2-w) | [Raspberry Pi documentation](https://www.raspberrypi.com/documentation/microcontrollers/) · [CircuitPython download](https://circuitpython.org/board/raspberry_pi_pico2_w/) |
+| BBC micro:bit V2 | Classroom board with an LED grid, buttons and sensors built in | [The Pi Hut](https://thepihut.com/products/micro-bit-v2) | [Getting started](https://microbit.org/get-started/getting-started/introduction/) · [micro:bit Python Editor](https://python.microbit.org/) · [CircuitPython download](https://circuitpython.org/board/microbit_v2/) |
+| Raspberry Pi 5 | A full computer running Linux, with GPIO pins for hardware | [The Pi Hut](https://thepihut.com/products/raspberry-pi-5) | [Getting started](https://www.raspberrypi.com/documentation/computers/getting-started.html) · [CircuitPython libraries on Raspberry Pi](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux) |
+
+New to CircuitPython? Start with Adafruit's [Welcome to CircuitPython](https://learn.adafruit.com/welcome-to-circuitpython) guide.
 
 ## Getting started
 
@@ -30,21 +32,21 @@ Each topic has its own folder, with one subfolder per device. Open a device fold
 
 Both boards use the same steps.
 
-1. Download the MicroPython `.uf2` file for your board from the firmware link in the table.
+1. Download the CircuitPython `.uf2` file for your board from the download link in the table. Choose the latest stable release.
 2. Hold the **BOOTSEL** button while you plug the board in by USB. It appears as a USB drive.
-3. Drag the `.uf2` file onto that drive. The board restarts running MicroPython.
-4. Open [Thonny](https://thonny.org/), go to **Run > Configure interpreter** and choose **MicroPython (Raspberry Pi Pico)**. This works for the Feather RP2040 too.
-5. Open a program from this repo and press **Run**.
+3. Drag the `.uf2` file onto that drive. The board restarts and appears as a new drive called **CIRCUITPY**.
+4. Add the libraries your program needs. Download the bundle that matches your CircuitPython version from the [CircuitPython libraries page](https://circuitpython.org/libraries), then copy the library files you need into the `lib` folder on CIRCUITPY. The LED activities need `neopixel.mpy`.
+5. Copy a program from this repo onto CIRCUITPY and rename it `code.py`. It runs as soon as you save it.
 
-To make a program run every time the board powers on, save it to the board as `main.py`.
+You can edit `code.py` in any editor, but [Thonny](https://thonny.org/) or [Mu](https://codewith.mu/) let you see error messages and `print()` output. In Thonny, choose **Run > Configure interpreter > CircuitPython (generic)**.
 
 ### micro:bit
 
-The micro:bit uses its own version of MicroPython. You do not need to install firmware. Write code in the [micro:bit Python Editor](https://python.microbit.org/) in your browser, then send it to the board over USB. Programs start with `from microbit import *`.
+The quickest route is the [micro:bit Python Editor](https://python.microbit.org/) in your browser. It uses the micro:bit's own version of MicroPython, so programs start with `from microbit import *` rather than `import board`. The micro:bit can also run CircuitPython using the download in the table, but the browser editor is simpler for most activities.
 
 ### Raspberry Pi 5
 
-The Raspberry Pi 5 is a full computer, so it runs normal **Python 3**, not MicroPython. Set it up with Raspberry Pi OS using the getting started guide, then use Thonny, which comes installed. Code for the Pi lives in folders marked `raspberry_pi` and uses different libraries from the microcontroller examples.
+The Raspberry Pi 5 is a full computer, so it runs normal **Python 3**, not CircuitPython firmware. Set it up with Raspberry Pi OS using the getting started guide. Adafruit's Blinka library then lets you run CircuitPython-style code, such as `import board`, on the Pi. Code for the Pi lives in folders marked `raspberry_pi`.
 
 ## Working safely
 
@@ -56,5 +58,5 @@ The Raspberry Pi 5 is a full computer, so it runs normal **Python 3**, not Micro
 
 1. Find the topic folder, then your device's subfolder.
 2. Read the worksheet `README.md` from top to bottom.
-3. Copy the starter program onto your board and run it before you change anything.
+3. Copy the starter program onto your board as `code.py` and run it before you change anything.
 4. Work through the worksheet one part at a time.
