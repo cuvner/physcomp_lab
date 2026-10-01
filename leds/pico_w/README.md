@@ -1,10 +1,10 @@
 # Blinking the Built-in LED
 
-Raspberry Pi Pico 2 W
+Raspberry Pi Pico W
 
 ## Starting point
 
-The Pico 2 W has a small green LED on the board, next to the USB port. You do not need any wires. Your program turns it on, waits, turns it off, waits, and repeats forever.
+The Pico W has a small green LED on the board, next to the USB port. You do not need any wires. Your program turns it on, waits, turns it off, waits, and repeats forever.
 
 ```python
 import time

@@ -1,0 +1,13 @@
+# Blink the built-in LED on the Raspberry Pi Pico 2 W
+import time
+import board
+import digitalio
+
+led = digitalio.DigitalInOut(board.LED)
+led.direction = digitalio.Direction.OUTPUT
+
+while True:
+    led.value = True   # LED on
+    time.sleep(0.5)
+    led.value = False  # LED off
+    time.sleep(0.5)
