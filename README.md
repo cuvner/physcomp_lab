@@ -11,7 +11,8 @@ physcom_lab/
 └── leds/
     ├── feather_rp2040/   LED matrix activities for the Adafruit Feather RP2040
     ├── pico_w/           LED activities for the Raspberry Pi Pico W
-    └── pico2_w/          LED activities for the Raspberry Pi Pico 2 W
+    ├── pico2_w/          LED activities for the Raspberry Pi Pico 2 W
+    └── qtpy_esp32s3/     NeoPixel and touch activities for the Adafruit QT Py ESP32-S3
 ```
 
 Each topic has its own folder, with one subfolder per device. Open a device folder and read its `README.md` first. That is your worksheet.
@@ -23,6 +24,7 @@ Each topic has its own folder, with one subfolder per device. Open a device fold
 | Adafruit Feather RP2040 | Small microcontroller board with USB-C and a built-in NeoPixel | [The Pi Hut](https://thepihut.com/products/adafruit-feather-rp2040) | [Adafruit guide](https://learn.adafruit.com/adafruit-feather-rp2040-pico) · [CircuitPython download](https://circuitpython.org/board/adafruit_feather_rp2040/) |
 | Raspberry Pi Pico W | Low-cost microcontroller with Wi-Fi and Bluetooth (RP2040 chip) | [The Pi Hut](https://thepihut.com/products/raspberry-pi-pico-w) | [Raspberry Pi documentation](https://www.raspberrypi.com/documentation/microcontrollers/) · [CircuitPython download](https://circuitpython.org/board/raspberry_pi_pico_w/) |
 | Raspberry Pi Pico 2 W | Low-cost microcontroller with Wi-Fi and Bluetooth | [The Pi Hut](https://thepihut.com/products/raspberry-pi-pico-2-w) | [Raspberry Pi documentation](https://www.raspberrypi.com/documentation/microcontrollers/) · [CircuitPython download](https://circuitpython.org/board/raspberry_pi_pico2_w/) |
+| Adafruit QT Py ESP32-S3 (no PSRAM) | Tiny board with Wi-Fi and a STEMMA QT socket for plug-in sensors | [Adafruit](https://www.adafruit.com/product/5426) | [Adafruit guide](https://learn.adafruit.com/adafruit-qt-py-esp32-s3) · [CircuitPython download](https://circuitpython.org/board/adafruit_qtpy_esp32s3_nopsram/) |
 | BBC micro:bit V2 | Classroom board with an LED grid, buttons and sensors built in | [The Pi Hut](https://thepihut.com/products/micro-bit-v2) | [Getting started](https://microbit.org/get-started/getting-started/introduction/) · [micro:bit Python Editor](https://python.microbit.org/) · [CircuitPython download](https://circuitpython.org/board/microbit_v2/) |
 | Raspberry Pi 5 | A full computer running Linux, with GPIO pins for hardware | [The Pi Hut](https://thepihut.com/products/raspberry-pi-5) | [Getting started](https://www.raspberrypi.com/documentation/computers/getting-started.html) · [CircuitPython libraries on Raspberry Pi](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux) |
 
