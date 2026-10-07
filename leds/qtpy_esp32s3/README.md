@@ -2,6 +2,41 @@
 
 Adafruit QT Py ESP32-S3
 
+## Warm-up: Simple button
+
+Before the touch sensor, start with one button and the NeoPixel built into the QT Py. Hold the button and the NeoPixel glows green. Let go and it turns off.
+
+```python
+import time
+import board
+import digitalio
+import neopixel
+
+power = digitalio.DigitalInOut(board.NEOPIXEL_POWER)
+power.switch_to_output(True)
+led = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.2)
+
+button = digitalio.DigitalInOut(board.A1)
+button.switch_to_input(pull=digitalio.Pull.UP)
+
+while True:
+    if button.value == False:      # pressed
+        led.fill((0, 255, 0))      # green
+    else:
+        led.fill((0, 0, 0))        # off
+    time.sleep(0.02)
+```
+
+Program: [`simple_button.py`](simple_button.py)
+
+**Wiring:** connect one leg of a push button to **A1** and the other leg to **GND**. You do not need a resistor, because `Pull.UP` turns on one inside the board.
+
+**Libraries:** `neopixel.mpy` and `adafruit_pixelbuf.mpy`.
+
+1. `Pull.UP` makes `button.value` read `True` when nothing is pressed. Why does pressing the button make it `False`?
+2. Why does the program have to switch on `NEOPIXEL_POWER` first?
+3. Change the program so the NeoPixel stays on after you let go, and turns off on the next press. Hint: look at how the touch program below uses `was_touched`.
+
 ## Starting point
 
 Touch any pad on the MPR121 touch sensor and the NeoPixel strip turns red. Touch again and it turns off.
